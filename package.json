@@ -1,0 +1,27 @@
+{
+  "name": "api_rest_full_sprint02",
+  "version": "1.0.0",
+  "description": "desafio02",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon api/source.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KledsonCR/API_REST_DESAFIO_02.git"
+  },
+  "author": "kledson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KledsonCR/API_REST_DESAFIO_02/issues"
+  },
+  "homepage": "https://github.com/KledsonCR/API_REST_DESAFIO_02#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.2",
+    "nodemon": "^2.0.16"
+  }
+}
