@@ -8,7 +8,7 @@ class USERS {
 
         const NameEhValido = users.name.length >= 3
         const CPFEhValido = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/.test(users.cpf)
-        const birthDateEhValida = moment(birthDate).isSameOrBefore('2004-01-01')
+        const birthDateEhValida = moment().diff(birthDate, 'years', true) >= 18
         const EmailEhValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(users.email)
         const PasswordEhValido = users.password.length >= 6 
         const AddressEhValido = users.address.length > 6
@@ -60,7 +60,7 @@ class USERS {
             res.status(400).json(erros)
         } else {        
 
-        const bDate = {...users, birthDate}
+        const btDate = {...users, birthDate}
 
         const sql = 'INSERT INTO USERS SET ?'
 
@@ -73,7 +73,7 @@ class USERS {
         })
     }
 }
-
+    //Método GET listar todos
     lista(res) {
     const sql = 'SELECT * FROM USERS'
 
@@ -85,7 +85,7 @@ class USERS {
          }
     })
 }
-
+    //Método GET buscar por Id
     buscaPorId(id, res) {
     const sql = `SELECT * FROM USERS WHERE id=${id}`;
 
@@ -98,7 +98,7 @@ class USERS {
          }
     })
 }
-
+    //Método PUT
     altera(id, valores, res) {
         if(valores.birthDate) {
              valores.birthDate = moment(valores.birthDate, 'DDD/MM/YYYY').format('YYYY-MM-DD')
@@ -115,7 +115,7 @@ class USERS {
          }
     })
 }
-
+    //Método DELETE
     deleta(id, res) {     
     const sql = 'DELETE FROM USERS WHERE id=?'
 
