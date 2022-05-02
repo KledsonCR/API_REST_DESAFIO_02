@@ -3,6 +3,7 @@ class Tabelas {
          this.conexao = conexao
 
          this.criarUSERS()
+         this.criarTask()
     }
 
     criarUSERS() {
@@ -31,9 +32,23 @@ class Tabelas {
              }
          })
     }
+
+    criarTask() {
+         const sql = `
+                       CREATE TABLE IF NOT EXISTS Tasks (
+                       description varchar(150) NOT NULL,
+                       date DATETIME NOT NULL, 
+                       user int,
+                       CONSTRAINT fk_userTask FOREIGN KEY (user) REFERENCES USERS (id))
+                     `
+
+         this.conexao.query(sql, (erro) => {
+             if(erro) {
+                 console.log(erro)
+               } else {
+                 console.log('Tabela Task criada com sucesso!') 
+               }
+         })
+    }
 }
-
-
-
-
 module.exports = new Tabelas
