@@ -4,13 +4,15 @@ const conexao = require('../data/conexao')
 
 class USERS {
     adiciona(users) {
+        const  birthDate = moment(users.birthDate, 'DD/MM/YYYY').format('YYYY-MM-DD')
+
         const sql = 'INSERT INTO USERS SET ?'
 
         conexao.query(sql, users, (erro, resultados) => {
             if(erro) {
-                console.log(erro)
+                 res.status(400).json(erro)
             } else {
-                console.log(resultados)
+                 res.status(201).json(resultados)
             }
         })
     }
