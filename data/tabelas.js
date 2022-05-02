@@ -33,4 +33,7 @@ class Tabelas {
     }
 }
 
+
+
+
 module.exports = new Tabelas
