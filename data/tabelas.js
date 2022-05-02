@@ -10,7 +10,7 @@ class Tabelas {
                         CREATE TABLE IF NOT EXISTS Users (
                         id int NOT NULL AUTO_INCREMENT,
                         name varchar(50) NOT NULL,
-                        cpf varchar(11) NOT NULL,
+                        cpf varchar(14) NOT NULL,
                         birthDate DATE NOT NULL,
                         email varchar(40) NOT NULL,
                         password varchar(30) NOT NULL,
