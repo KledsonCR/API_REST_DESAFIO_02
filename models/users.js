@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 const conexao = require('../data/conexao')
 
 class USERS {
